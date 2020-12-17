@@ -5,7 +5,7 @@ package ru.ncedu.rectangle;
  * @version 1.0, 10 Deg 2020
  * @author Vladislav Semenovykh
  */
-public class RectangleImp implements  IRectangle{
+public class RectangleImp implements IRectangle{
     private float length = 1.0f;
     private float width = 1.0f;
 
@@ -70,7 +70,7 @@ public class RectangleImp implements  IRectangle{
      */
     @Override
     public double getArea(){
-        return this.length*this.width;
+        return (double)(this.length*this.width);
     }
 
     /**
@@ -79,7 +79,7 @@ public class RectangleImp implements  IRectangle{
      */
     @Override
     public double gerPerimeter(){
-        return this.width+this.length;
+        return (double)(this.width+this.length);
     }
 
     /**

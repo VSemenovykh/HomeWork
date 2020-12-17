@@ -67,24 +67,25 @@ public class ContainerImp implements IContainer {
      */
     @Override
     public boolean collides(BallImp ball){
-        double radiusBall = (double) ball.getRaadius();
-        double xCenterBall = (double) ball.getX();
-        double yCenterBall = (double) ball.getY();
+        Double radiusBall = (double) ball.getRaadius();
+        Double xCenterBall = (double) ball.getX();
+        Double yCenterBall = (double) ball.getY();
 
         /*Ball touch point coordinates*/
-        double xTopTangentBall = xCenterBall;
-        double yTopTangentBall = yCenterBall - radiusBall;
+        Double xTopTangentBall = xCenterBall;
+        Double yTopTangentBall = yCenterBall - radiusBall;
 
-        double xLeftTangentBall = xCenterBall - radiusBall;
-        double yLeftTangentBall = xCenterBall;
+        Double xLeftTangentBall = xCenterBall - radiusBall;
+        Double yLeftTangentBall = xCenterBall;
 
-        double xRightTangentBall = xCenterBall + radiusBall;
-        double yRightTangentBall = yCenterBall;
+        Double xRightTangentBall = xCenterBall + radiusBall;
+        Double yRightTangentBall = yCenterBall;
 
-        double xDownTangentBall = xCenterBall;
-        double yDownTangentBall = yCenterBall + radiusBall;
+        Double xDownTangentBall = xCenterBall;
+        Double yDownTangentBall = yCenterBall + radiusBall;
 
         /*Boundary conditions*/
+        /*
         boolean Condition = ( ( (xTopTangentBall >= getX()) & (xTopTangentBall <= getWidth()) )
                             & ( (yTopTangentBall >= getY()) & (yTopTangentBall <= getHeight()) )
                             & ( (xLeftTangentBall >= getX()) & (xLeftTangentBall <= getWidth()) )
@@ -93,8 +94,17 @@ public class ContainerImp implements IContainer {
                             & ( (yRightTangentBall >= getY()) & (yRightTangentBall <= getHeight()) )
                             & ( (xDownTangentBall >= getX()) & (xDownTangentBall <= getWidth()) )
                             & ( (yDownTangentBall >= getY()) & (yDownTangentBall <= getHeight()) ) );
+        */
+        boolean Condition = ( ( (xTopTangentBall.compareTo((double)getX()) >= 0) & (xTopTangentBall.compareTo((double)getWidth()) <= 0) )
+                            & ( (yTopTangentBall.compareTo((double)getY()) >= 0) & (yTopTangentBall.compareTo((double)getHeight()) <= 0) )
+                            & ( (xLeftTangentBall.compareTo((double)getX()) >= 0) & (xLeftTangentBall.compareTo((double)getWidth()) <= 0) )
+                            & ( (yLeftTangentBall.compareTo((double)getY()) >= 0) & (yLeftTangentBall.compareTo((double)getHeight()) <= 0) )
+                            & ( (xRightTangentBall.compareTo((double)getX()) >= 0) & (xRightTangentBall.compareTo((double)getWidth()) <= 0) )
+                            & ( (yRightTangentBall.compareTo((double)getY()) >= 0) & (yRightTangentBall.compareTo((double)getHeight()) <= 0) )
+                            & ( (xDownTangentBall.compareTo((double)getX()) >= 0) & (xDownTangentBall.compareTo((double)getWidth()) <= 0) )
+                            & ( (yDownTangentBall.compareTo((double)getY()) >= 0) & (yDownTangentBall.compareTo((double)getHeight()) <= 0) ) );
 
-        return (Condition) ? true :false;
+        return (Condition) ? true : false;
     }
 
     /**

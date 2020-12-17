@@ -12,6 +12,11 @@ public class MyTriangleImp implements IMyTriangle {
     private MyPointImp v2;
     private MyPointImp v3;
 
+    public enum typeTriangle{
+        EQUILATERAL, ISOSCELES, SCALENE;
+
+    }
+
     /**
      * Constructor - creating a new instance with specific values
      * @param x1
@@ -80,16 +85,17 @@ public class MyTriangleImp implements IMyTriangle {
         Double distOneThree = this.v1.distance(this.v3);
         Double distTwoThree = this.v2.distance(this.v3);
 
-        /*Сondition for an equilateral triangle*/
+        /*СonditionOne for an equilateral triangle*/
         boolean conditionOne = ( ( distOneTwo.compareTo(distOneThree) == 0 )
                                & ( distOneThree.compareTo(distTwoThree) == 0 )
                                & ( distOneThree.compareTo(distTwoThree) == 0 ) );
 
-        /*condition for an isosceles triangle*/
+        /*conditionTwo for an isosceles triangle*/
         boolean conditionTwo = ( ( ( distOneTwo.compareTo(distOneThree) != 0 ) & ( distOneTwo.compareTo(distTwoThree) == 0 ) )
                                | ( ( distOneTwo.compareTo(distTwoThree) != 0 ) & ( distOneTwo.compareTo(distOneThree) == 0 )  )
                                | ( ( distOneThree.compareTo(distTwoThree) != 0 ) & ( distOneThree.compareTo(distOneTwo) == 0 ) ) );
 
-     return conditionOne ? "equilateral" : conditionTwo ? "isosceles" : "scalene";
+
+         return conditionOne ? String.valueOf(typeTriangle.EQUILATERAL) : conditionTwo ? String.valueOf(typeTriangle.ISOSCELES) : String.valueOf(typeTriangle.SCALENE);
     }
 }

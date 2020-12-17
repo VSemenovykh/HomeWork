@@ -250,6 +250,7 @@ public class MyComplexImp implements IMyComplex {
      */
     @Override
     public MyComplexImp conjugate(){
-        return (this.imag >= 0) ? new MyComplexImp(real, -imag) : new MyComplexImp(real, -imag);
+      //return (this.imag >= 0) ? new MyComplexImp(real, -imag) : new MyComplexImp(real, -imag);
+        return new MyComplexImp(real, -imag);
     }
 }

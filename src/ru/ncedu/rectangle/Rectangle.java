@@ -1,19 +1,19 @@
 package ru.ncedu.rectangle;
 
 /**
- * This class RectangleImp
+ * This class Rectangle
  * @version 1.0, 10 Deg 2020
  * @author Vladislav Semenovykh
  */
-public class RectangleImp implements IRectangle{
+public class Rectangle {
     private float length = 1.0f;
     private float width = 1.0f;
 
     /**
      * Constructor - creating a new instance
-     * @see #RectangleImp(float, float)
+     * @see #Rectangle(float, float)
      */
-    public RectangleImp(){
+    public Rectangle(){
 
     }
 
@@ -22,7 +22,7 @@ public class RectangleImp implements IRectangle{
      * @param length
      * @param width
      */
-    public RectangleImp(float length, float width){
+    public Rectangle(float length, float width){
         this.length = length;
         this.width = width;
 
@@ -32,7 +32,6 @@ public class RectangleImp implements IRectangle{
      * Method to get field {@link #length}
      * @return length
      */
-    @Override
     public float getLength(){
         return this.length;
     }
@@ -41,7 +40,6 @@ public class RectangleImp implements IRectangle{
      * Procedure for determination field {@link #length}
      * @param length
      */
-    @Override
     public void setLength(float length){
         this.length = length;
     }
@@ -50,7 +48,6 @@ public class RectangleImp implements IRectangle{
      * Method to get field {@link #width}
      * @return width
      */
-    @Override
     public float getWidth(){
         return this.width;
     }
@@ -59,7 +56,6 @@ public class RectangleImp implements IRectangle{
      * Procedure for determination field {@link #width}
      * @param width
      */
-    @Override
     public void setWidth(float width){
         this.width = width;
     }
@@ -68,7 +64,6 @@ public class RectangleImp implements IRectangle{
      * Method to get area rectangle
      * @return area
      */
-    @Override
     public double getArea(){
         return (double)(this.length*this.width);
     }
@@ -77,7 +72,6 @@ public class RectangleImp implements IRectangle{
      * Method to get perimeter rectangle
      * @return perimeter
      */
-    @Override
     public double gerPerimeter(){
         return (double)(this.width+this.length);
     }

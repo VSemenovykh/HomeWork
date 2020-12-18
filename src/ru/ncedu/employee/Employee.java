@@ -1,11 +1,11 @@
 package ru.ncedu.employee;
 
 /**
- * This class  EmployeeImp
+ * This class  Employee
  * @version 1.0, 10 Deg 2020
  * @author Vladislav Semenovykh
  */
-public class EmployeeImp implements IEmployee {
+public class Employee{
     private int id ;
     private String firstName;
     private String lastName ;
@@ -18,7 +18,7 @@ public class EmployeeImp implements IEmployee {
      * @param lastName
      * @param salary
      */
-    public  EmployeeImp(int id, String firstName, String lastName, int salary){
+    public Employee(int id, String firstName, String lastName, int salary){
         this.id =id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,7 +29,6 @@ public class EmployeeImp implements IEmployee {
      * Method to get field {@link #id}
      * @return id
      */
-    @Override
     public int getID(){
         return this.id;
     }
@@ -38,7 +37,6 @@ public class EmployeeImp implements IEmployee {
      * Method to get field {@link #firstName}
      * @return firstName
      */
-    @Override
     public String getFirstName(){
         return  this.firstName;
     }
@@ -47,7 +45,6 @@ public class EmployeeImp implements IEmployee {
      * Method to get field {@link #lastName}
      * @return lastName
      */
-    @Override
     public String getLastName(){
         return this.lastName;
     }
@@ -56,7 +53,6 @@ public class EmployeeImp implements IEmployee {
      * Method to get values full name
      * @return "{@link #firstName} {@link #lastName}"
      */
-    @Override
     public String getName(){
         return this.firstName+" "+this.lastName;
     }
@@ -65,7 +61,6 @@ public class EmployeeImp implements IEmployee {
      * Method to get field {@link #salary}
      * @return salary
      */
-    @Override
     public int getSalary(){
         return this.salary;
     }
@@ -74,7 +69,6 @@ public class EmployeeImp implements IEmployee {
      * Procedure for determination field {@link #salary}
      * @param salary
      */
-    @Override
     public void setSalary(int salary){
         this.salary = salary;
     }
@@ -83,23 +77,17 @@ public class EmployeeImp implements IEmployee {
      * Method to get  annual Salary
      * @return salary*12
      */
-    @Override
     public int getAnnualSalary(){
-        int annualSalary;
-        annualSalary = this.salary*12;
-
-        return  annualSalary;
+        return  (this.salary*12);
     }
 
     /**
      * Method to get  raise Salary
      * @return percent
      */
-    @Override
     public int raiseSalary(int percent){
         double salary = (double)this.salary;
         double raiseSalary = salary *(1.0 + (((double)percent)/100));
-
         return (int)raiseSalary;
     }
 

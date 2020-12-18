@@ -1,11 +1,11 @@
 package ru.ncedu.ball;
 
 /**
- * This class BallImp
+ * This class Ball
  * @version 1.0, 15 Deg 2020
  * @author Vladislav Semenovykh
  */
-public class BallImp implements IBall {
+public class Ball {
     private float x;
     private float y;
     private int radius;
@@ -20,7 +20,7 @@ public class BallImp implements IBall {
      * @param speed
      * @param direction
      */
-    public BallImp (float x, float y, int radius, int speed, int direction){
+    public Ball(float x, float y, int radius, int speed, int direction){
         this.x = x;
         this.y = y;
         this.radius = radius;
@@ -32,7 +32,6 @@ public class BallImp implements IBall {
      * Method to get values field {@link #x}
      * @return x
      */
-    @Override
     public float getX(){
         return this.x;
     }
@@ -49,7 +48,6 @@ public class BallImp implements IBall {
      * Method to get values field {@link #y}
      * @return y
      */
-    @Override
     public float getY() {
         return this.y;
     }
@@ -58,7 +56,6 @@ public class BallImp implements IBall {
      * Procedure for determination field {@link #y}
      * @param y
      */
-    @Override
     public void setY(float y){
         this.y = y;
     }
@@ -67,7 +64,6 @@ public class BallImp implements IBall {
      * Method to get values radius {@link #radius}
      * @return radius
      */
-    @Override
     public int getRaadius(){
         return this.radius;
     }
@@ -76,7 +72,6 @@ public class BallImp implements IBall {
      * Procedure for determination producer {@link #radius}
      * @param radius
      */
-    @Override
     public void setRadius(int radius){
         this.radius = radius;
     }
@@ -85,7 +80,6 @@ public class BallImp implements IBall {
      * Method to get values xDelta {@link #xDelta}
      * @return delataX
      */
-    @Override
     public float getDeltaX(){
         return this.xDelta;
     }
@@ -94,7 +88,6 @@ public class BallImp implements IBall {
      * Procedure for determination field {@link #xDelta}
      * @param xDelta
      */
-    @Override
     public void setxDelta(float xDelta){
         this.xDelta = xDelta;
     }
@@ -103,7 +96,6 @@ public class BallImp implements IBall {
      * Method to get values yDelta {@link #yDelta}
      * @return deltaY
      */
-    @Override
     public float getDeltaY(){
         return this.yDelta;
     }
@@ -112,7 +104,6 @@ public class BallImp implements IBall {
      * Procedure for determination field {@link #yDelta}
      * @param yDelta
      */
-    @Override
     public void setyDelta(float yDelta){
         this.yDelta = yDelta;
     }
@@ -122,7 +113,6 @@ public class BallImp implements IBall {
      * @return x + deltaX Move the ball one step deltaX
      * @return y + deltay Move the ball one step deltaY
      */
-    @Override
     public void move(){
         this.x += getDeltaX();
         this.y += getDeltaY();
@@ -132,7 +122,6 @@ public class BallImp implements IBall {
      * Method reverses the direction of horizontal movement of the ball
      * @return deltaX = -deltaX
      */
-    @Override
     public void reflectHorizontal(){
         this.xDelta = -getDeltaX();
     }
@@ -141,7 +130,6 @@ public class BallImp implements IBall {
      * Method reverses the direction of vertical movement of the ball
      * @return deltaY = -deltaY
      */
-    @Override
     public void refletVertical(){
         this.yDelta = -getDeltaY();
     }
@@ -150,7 +138,6 @@ public class BallImp implements IBall {
      * String representation instance this class
      * @return "Ball[({@link #x},{@link #y}), speed=({@link #xDelta}, {@link #yDelta})]"
      */
-    @Override
     public String toString() {
         return "Ball[(" + this.x +
                     "," + this.y + ")" +

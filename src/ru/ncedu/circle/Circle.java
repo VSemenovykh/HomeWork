@@ -1,28 +1,29 @@
 package ru.ncedu.circle;
 
+import static java.lang.Math.*;
 /**
- * This class CircleImp
+ * This class Circle
  * @version 1.0, 10 Deg 2020
  * @author Vladislav Semenovykh
  */
-public class CircleImp implements ICircle {
+public class Circle{
     private double radius;
     private String color;
 
     /**
      * Constructor - creating a new instance with specific values
-     * @see #CircleImp(double)
+     * @see #Circle(double)
      */
-    public CircleImp() {
+    public Circle() {
 
     }
 
     /**
      * Constructor - creating a new instance with specific values
      * @param radius
-     * @see #CircleImp(double, String)
+     * @see #Circle(double, String)
      */
-    public CircleImp(double radius) {
+    public Circle(double radius) {
         this.radius = radius;
     }
 
@@ -30,9 +31,9 @@ public class CircleImp implements ICircle {
      * Constructor - creating a new instance with specific values
      * @param radius
      * @param color
-     * @see #CircleImp()
+     * @see #Circle()
      */
-    public CircleImp(double radius, String color) {
+    public Circle(double radius, String color) {
         this.radius = radius;
         this.color = color;
     }
@@ -41,7 +42,6 @@ public class CircleImp implements ICircle {
      * Method to get field {@link #radius}
      * @return radius
      */
-    @Override
     public double getRadius(){
         return this.radius;
     }
@@ -50,14 +50,12 @@ public class CircleImp implements ICircle {
      * Method to get field {@link #color}
      * @return color
      */
-    @Override
     public String getColor(){ return this.color; }
 
     /**
      * Procedure for determination field {@link #radius}
      * @param radius
      */
-    @Override
     public void setRadius(double radius){
         this.radius = radius;
     }
@@ -66,7 +64,6 @@ public class CircleImp implements ICircle {
      * Procedure for determination field {@link #color}
      * @param color
      */
-    @Override
     public void setColor(String color){
         this.color = color;
     }
@@ -87,9 +84,7 @@ public class CircleImp implements ICircle {
      * Method to get area circle
      * @return area
      */
-    @Override
     public double getArea(){
-        double area = (Math.PI)*(Math.pow(this.radius, 2));
-        return  area;
+        return  PI * pow(this.radius, 2);
     }
 }

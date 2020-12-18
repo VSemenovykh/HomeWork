@@ -7,7 +7,7 @@ import  java.lang.StringBuffer;
  * @version 1.0, 10 Deg 2020
  * @author Vladislav Semenovykh
  */
-public class BookImp implements IBook {
+public class Book{
     private String name;
     private Author[] authors;
     private double price;
@@ -18,9 +18,9 @@ public class BookImp implements IBook {
      * @param name
      * @param authors
      * @param price
-     * @see #BookImp(String, Author[], double, int)
+     * @see #Book(String, Author[], double, int)
      */
-    public BookImp(String name, Author[] authors, double price){
+    public Book(String name, Author[] authors, double price){
         this.name = name;
         this.authors = authors;
         this.price = price;
@@ -32,9 +32,9 @@ public class BookImp implements IBook {
      * @param authors
      * @param price
      * @param qry
-     * @see #BookImp(String, Author[], double)
+     * @see #Book(String, Author[], double)
      */
-    public BookImp(String name, Author[] authors, double price, int qry){
+    public Book(String name, Author[] authors, double price, int qry){
         this.name = name;
         this.authors = authors;
         this.price = price;
@@ -45,7 +45,6 @@ public class BookImp implements IBook {
      * Method to get field {@link #name}
      * @return name book
      */
-    @Override
     public String getName(){
         return this.name;
     }
@@ -62,7 +61,6 @@ public class BookImp implements IBook {
      * Method to get field {@link #price}
      * @return price
      */
-    @Override
     public double getPrice(){
         return this.price;
     }
@@ -71,7 +69,6 @@ public class BookImp implements IBook {
      * Procedure for determination field {@link #price}
      * @param price
      */
-    @Override
     public void setPrice(double price){
         this.price = price;
     }
@@ -80,7 +77,6 @@ public class BookImp implements IBook {
      * Method to get field {@link #qry}
      * @return qry
      */
-    @Override
     public int getQry(){
         return this.qry;
     }
@@ -89,7 +85,6 @@ public class BookImp implements IBook {
      * Procedure for determination field {@link #qry}
      * @param qry
      */
-    @Override
     public void setQry(int qry){
         this.qry = qry;
     }
@@ -97,12 +92,11 @@ public class BookImp implements IBook {
     /**
      * String representation
      * @return "Book[name={@link #name},
-     *               authors={authors[name={@link BookImp.Author#name},
-     *                               email={@link BookImp.Author#email},
+     *               authors={authors[name={@link Book.Author#name},
+     *                               email={@link Book.Author#email},
      *                               gender={@link Author#getName()}],....},
      *               price={@link #price},qty={@link #qry}]"
      */
-    @Override
     public String toString(){
         StringBuffer authors = new StringBuffer();
         for(int i=0; i<this.authors.length; i++){
@@ -110,16 +104,15 @@ public class BookImp implements IBook {
         }
         authors.replace(authors.length()-1, authors.length(), "" );
         return "Book[name=" + this.name +
-                  ",authors={" + authors + "}" +
-                  ",price=" + this.price +
-                  ",qty=" + this.qry + "]";
+                   ",authors={" + authors + "}" +
+                   ",price=" + this.price +
+                   ",qty=" + this.qry + "]";
     }
 
     /**
      * Method to get list authors
      * @return "authorName1, authorName2,..."
      */
-    @Override
     public String getAuthorNames(){
         StringBuffer authorNames = new StringBuffer();
         for(int i=0; i<this.authors.length; i++){
@@ -146,7 +139,7 @@ public class BookImp implements IBook {
         }
 
         /**
-         * Method to get field {@link BookImp.Author#name}
+         * Method to get field {@link Book.Author#name}
          * @return name
          */
         public String getName(){
@@ -154,14 +147,14 @@ public class BookImp implements IBook {
         }
 
         /**
-         * Method to get field {@link BookImp.Author#email}
+         * Method to get field {@link Book.Author#email}
          */
         public String getEmail(){
             return this.email;
         }
 
         /**
-         * Method to get fied {@link BookImp.Author#gender}
+         * Method to get fied {@link Book.Author#gender}
          */
         public char getGender(){
             return this.gender;
@@ -169,9 +162,9 @@ public class BookImp implements IBook {
 
         /**
          * String representation instance this class
-         * @return "Author[name={@link BookImp.Author#name}
-         *                ,email={@link BookImp.Author#email}
-         *                ,gender={@link BookImp.Author#gender}]";
+         * @return "Author[name={@link Book.Author#name}
+         *                ,email={@link Book.Author#email}
+         *                ,gender={@link Book.Author#gender}]";
          */
         public String show(){
             return "Author[name=" + this.name +

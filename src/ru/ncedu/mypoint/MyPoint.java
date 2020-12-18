@@ -1,27 +1,28 @@
 package ru.ncedu.mypoint;
 
+import static java.lang.Math.*;
 /**
- * This class MyPointImp
+ * This class MyPoint
  * @version 1.0, 10 Deg 2020
  * @author Vladislav Semenovykh
  */
-public class MyPointImp implements IMyPoint {
-    private int x = 0;
-    private int y = 0;
+public class MyPoint {
+    private double x = 0;
+    private double y = 0;
 
     /**
      * Constructor - creating a new instance
-     * @see #MyPointImp(int, int)
+     * @see #MyPoint(double, double)
      * */
-    public MyPointImp(){}
+    public MyPoint(){}
 
     /**
      * Constructor - creating a new instance with specific values
      * @param x
      * @param y
-     * @see #MyPointImp()
+     * @see #MyPoint()
      */
-    public MyPointImp(int x, int y){
+    public MyPoint(double x, double y){
         this.x = x;
         this.y = y;
     }
@@ -30,8 +31,7 @@ public class MyPointImp implements IMyPoint {
      * Method to get field {@link #x}
      * @return x
      */
-    @Override
-    public int getX(){
+    public double getX(){
         return this.x;
     }
 
@@ -39,8 +39,7 @@ public class MyPointImp implements IMyPoint {
      * Procedure for determination field {@link #x}
      * @param x
      */
-    @Override
-    public void setX(int x){
+    public void setX(double x){
         this.x = x;
     }
 
@@ -48,8 +47,7 @@ public class MyPointImp implements IMyPoint {
      * Method to get field {@link #y}
      * @return y
      */
-    @Override
-    public int getY(){
+    public double getY(){
         return this.y;
     }
 
@@ -57,8 +55,7 @@ public class MyPointImp implements IMyPoint {
      * Procedure for determination field {@link #y}
      * @param y
      */
-    @Override
-    public void setY(int y){
+    public void setY(double y){
         this.y = y;
     }
 
@@ -66,12 +63,10 @@ public class MyPointImp implements IMyPoint {
      * Method to get an massiv of two numbers {X,Y}
      * @return array
      */
-    @Override
-    public int[] getXY(){
-        int[] XY = new int[2];
+    public double[] getXY(){
+        double[] XY = new double[2];
         XY[0] = this.x;
         XY[1] = this.y;
-
         return XY;
     }
 
@@ -80,7 +75,7 @@ public class MyPointImp implements IMyPoint {
      * @param x
      * @param y
      * */
-    public void setXY(int x, int y){
+    public void setXY(double x, double y){
         this.x = x;
         this.y = y;
     }
@@ -100,41 +95,23 @@ public class MyPointImp implements IMyPoint {
      * @param y
      * return distance
      */
-    @Override
-    public double distance(int x, int y){
-        double sqaX = (double) Math.pow(x - this.x , 2);
-        double sqaY = (double) Math.pow(y - this.y , 2);
-
-        return Math.sqrt(sqaX + sqaY);
+    public double distance(double x, double y){
+        return sqrt(pow(x - this.x , 2) + pow(y - this.y , 2));
     }
 
     /* Method to get distance between two point
      * @param another
      * @return distance
      */
-    @Override
-    public double distance(MyPointImp another){
-        double sqaX ;
-        double sqaY;
-
-        sqaX = (double) Math.pow((another.getX() - this.x), 2);
-        sqaY = (double) Math.pow((another.getY() - this.y), 2);
-
-        return Math.sqrt(sqaX + sqaY);
+    public double distance(MyPoint another){
+        return sqrt(pow((another.getX() - this.x), 2) +  pow((another.getY() - this.y), 2));
     }
 
     /**
      * Method to get distance this point
      * @return distance (0,0)
      */
-    @Override
     public double distance(){
-        double sqaX;
-        double sqaY;
-
-        sqaX = (double) Math.pow(getX() - this.x, 2);
-        sqaY = (double) Math.pow(getY() - this.y, 2);
-
-        return Math.sqrt(sqaX + sqaY);
+        return sqrt(pow(getX() - this.x, 2) + pow(getY() - this.y, 2));
     }
 }

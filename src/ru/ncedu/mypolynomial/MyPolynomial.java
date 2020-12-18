@@ -1,20 +1,19 @@
 package ru.ncedu.mypolynomial;
 
-import java.util.Arrays;
-
+import static java.lang.Math.*;
 /**
- * This class MyPolynomialImp
+ * This class MyPolynomial
  * @version 1.0, 13 Deg 2020
  * @author Vladislav Semenovykh
  */
-public class MyPolynomialImp implements IMyPolynomial{
+public class MyPolynomial {
     private double[] coeffs = null;
 
     /**
      * Constructor - creating a new instance with specific values
      * @param coeffs
      */
-    public MyPolynomialImp(double... coeffs){
+    public MyPolynomial(double... coeffs){
         this.coeffs = coeffs;
     }
 
@@ -22,7 +21,6 @@ public class MyPolynomialImp implements IMyPolynomial{
      * Method to get degree polynomial
      * @return degree
      */
-    @Override
     public int getDegree(){
         return this.coeffs.length-1;
     }
@@ -43,14 +41,10 @@ public class MyPolynomialImp implements IMyPolynomial{
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         int lengthCoeffs = getDegree();
-
         for(int i = 0; i < lengthCoeffs; i++){
             buffer.append(this.coeffs[lengthCoeffs - i] + "x^" + (lengthCoeffs - i) + " + " );
-
         }
-
         buffer.append(this.coeffs[0]);
-
         return buffer.toString();
     }
 
@@ -59,18 +53,14 @@ public class MyPolynomialImp implements IMyPolynomial{
      * @param x
      * @return values polynomial
      */
-    @Override
     public double evaluate(double x){
         double res = 0.0;
         int lengthCoeffs = getDegree();
-
         for(int i = 0; i < lengthCoeffs; i++){
-            res +=this.coeffs[lengthCoeffs - i]*Math.pow(x,lengthCoeffs - i);
+            res +=this.coeffs[lengthCoeffs - i]*pow(x,lengthCoeffs - i);
         }
         res += this.coeffs[0];
-
         return res;
-
     }
 
     /**
@@ -78,10 +68,7 @@ public class MyPolynomialImp implements IMyPolynomial{
      * @param right
      * @return new instance
      */
-    @Override
-    public MyPolynomialImp add(MyPolynomialImp right){
-        MyPolynomialImp newPolynomial;
-
+    public MyPolynomial add(MyPolynomial right){
         double[] coeffsThisInstance = new double[getDegree()+1];
         int lengthCoeffsThisInstance = getDegree() + 1;
         int lengthCoeffsRight = right.getDegree() + 1;
@@ -92,17 +79,13 @@ public class MyPolynomialImp implements IMyPolynomial{
             for (int i=0; i < lengthCoeffsThisInstance; i++){
                 right.getCoeffs()[i] += coeffsThisInstance[i];
             }
-
-            newPolynomial = new MyPolynomialImp(right.getCoeffs());
+            return new MyPolynomial(right.getCoeffs());
         }else {
             for (int i = 0; i < lengthCoeffsThisInstance; i++) {
                 coeffsThisInstance[i] += right.getCoeffs()[i];
             }
-
-            newPolynomial = new MyPolynomialImp(coeffsThisInstance);
+            return new MyPolynomial(coeffsThisInstance);
         }
-
-        return newPolynomial;
     }
 
     /**
@@ -110,10 +93,7 @@ public class MyPolynomialImp implements IMyPolynomial{
      * @param right
      * @return new instance
      */
-    @Override
-    public MyPolynomialImp multiple(MyPolynomialImp right){
-        MyPolynomialImp newPolynomial;
-
+    public MyPolynomial multiple(MyPolynomial right){
         double[] coeffsThisInstance = new double[getDegree()+1];
         int lengthCoeffsThisInstance = getDegree() + 1;
         int lengthCoeffsRight = right.getDegree() + 1;
@@ -124,12 +104,12 @@ public class MyPolynomialImp implements IMyPolynomial{
             for (int i=0; i < lengthCoeffsThisInstance; i++){
                 right.getCoeffs()[i] *= coeffsThisInstance[i];
             }
-            return new MyPolynomialImp(right.getCoeffs());
+            return new MyPolynomial(right.getCoeffs());
         }else {
             for (int i = 0; i < lengthCoeffsThisInstance; i++) {
                 coeffsThisInstance[i] *= right.getCoeffs()[i];
             }
-            return new MyPolynomialImp(coeffsThisInstance);
+            return new MyPolynomial(coeffsThisInstance);
         }
     }
 }
